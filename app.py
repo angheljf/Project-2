@@ -35,10 +35,10 @@ def heat():
     connection.close()
     return json_projects
 
-@app.route("/cluter")
+@app.route("/cluster")
 def clut():
 
-    return render_template('cluter.html')
+    return render_template('cluster.html')
 
 @app.route("/graph")
 def graph():
