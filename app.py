@@ -10,7 +10,8 @@ MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 DBS_NAME = 'Market_db'
 COLLECTION_NAME = 'jobs'
-FIELDS = {'Latitude': True, 'Longitude': True, 'Industry':True, '_id': False}
+FIELDS = {'Job Title':True, 'Min Salary Estimate':True, 'Max Salary Estimate':True, 'Avg Salary Estimate':True, 'Rating':True, 
+'Location':True, 'Size':True, 'Type of ownership':True, 'Sector':True, 'Latitude': True, 'Longitude': True, 'Industry':True, '_id': False}
 
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Market_db")
 
@@ -22,7 +23,7 @@ def home():
 
     return render_template('index.html', data=data)
 
-@app.route("/test")
+@app.route("/api")
 def heat():
     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
     collection = connection[DBS_NAME][COLLECTION_NAME]
@@ -38,6 +39,11 @@ def heat():
 def clut():
 
     return render_template('cluter.html')
+
+@app.route("/graph")
+def graph():
+
+    return render_template('graph.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

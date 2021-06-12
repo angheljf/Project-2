@@ -16,7 +16,7 @@ var myMap = L.map("map", {
   
   
   // Assemble API query URL
-  var url = "http://127.0.0.1:5000/test"
+  var url = "http://127.0.0.1:5000/api"
   
   // Grab the data with d3
   d3.json(url).then(function(response) {
@@ -35,7 +35,8 @@ var myMap = L.map("map", {
   
         // Add a new marker to the cluster group and bind a pop-up
         markers.addLayer(L.marker([location.Latitude, location.Longitude])
-          .bindPopup(location.Industry));
+          .bindPopup("<h3>" + "Industry: " + location.Industry + "</h3>" + "<h3>" + "Job Title: " + location['Job Title'] + "</h3>"
+          + "<h3>"+ "Avg Salary Estimate: " + location['Avg Salary Estimate'] + "</h3>"));
       }
   
     }

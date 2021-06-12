@@ -12,7 +12,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-var url = "http://127.0.0.1:5000/test";
+var url = "http://127.0.0.1:5000/api";
 
 d3.json(url).then(function(response) {
 
